@@ -1,0 +1,11 @@
+.user_main{
+    display: flex;
+}
+
+.user_info {
+  display: flex;
+  flex-direction: column;
+  .subscribers {
+    display: flex;
+  }
+}

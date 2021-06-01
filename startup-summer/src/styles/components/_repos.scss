@@ -1,0 +1,8 @@
+.repos_list {
+  display: flex;
+  flex-direction: column;
+  .repo_block {
+    display: flex;
+    flex-direction: column;
+  }
+}
