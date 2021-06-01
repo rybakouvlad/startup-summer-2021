@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Switch, useHistory, useRouteMatch, Route } from "react-router";
 import { ListRepository } from "./ListRepository";
 import { EmptyRepository } from "./EmptyRepository";
+import { RepoPagination } from "./RepoPagination";
 
 export const Repository = ({ login, repos }) => {
   const path = useRouteMatch();
@@ -11,24 +12,17 @@ export const Repository = ({ login, repos }) => {
     console.log(path);
     if (repos) {
       console.log("!!!!!!!!!!", path);
-      history.push(`${path.url}/1`);
+      history.push(`${path.url}/${page}`);
     }
-  }, []);
+  }, [page]);
   return repos ? (
     <>
       <Switch>
         <Route path={`${path.url}/:page`}>
-          <ListRepository login={login} repos={repos}/>
+          <ListRepository login={login} repos={repos} />
         </Route>
       </Switch>
-      <button
-        onClick={() => {
-          setPage(page + 1);
-          history.push(`${path.url}/${page}`);
-        }}
-      >
-        CLICK
-      </button>
+      <RepoPagination repos={repos} page={page} setPage={setPage}/>
     </>
   ) : (
     <EmptyRepository />
