@@ -1,0 +1,14 @@
+.empty {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  min-height: 662px;
+  p {
+    margin-top: 24px;
+    max-width: 210px;
+  }
+}

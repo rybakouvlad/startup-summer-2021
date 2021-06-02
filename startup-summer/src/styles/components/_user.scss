@@ -1,0 +1,63 @@
+.user_main {
+  display: flex;
+}
+
+.user_info {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0px 0px 57px;
+  max-width: 376px;
+  width: 100%;
+  img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+  }
+  h3 {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 130%;
+    margin-top: 28px;
+  }
+  a {
+    font-size: 18px;
+    line-height: 22px;
+    color: #0064eb;
+    text-decoration: none;
+    margin-top: 6px;
+  }
+
+  .subscribers {
+    display: flex;
+    margin-top: 32px;
+    .followers {
+      background-image: url("../../assets/icons/group_24px.svg");
+      background-position: 0px 3px;
+      background-repeat: no-repeat;
+      p {
+        padding-left: 33px;
+      }
+    }
+    .following {
+      background-image: url("../../assets/icons/provate.svg");
+      background-position: 16px -1px;
+      background-repeat: no-repeat;
+      p {
+        padding-left: 50px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .user_main {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  .user_info {
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin: 0;
+  }
+}
