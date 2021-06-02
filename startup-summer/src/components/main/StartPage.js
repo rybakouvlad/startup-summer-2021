@@ -1,5 +1,6 @@
 import React from "react";
 import { ReactComponent as Svg } from "../../assets/icons/image.svg";
+
 export const StartPage = () => {
   return (
     <div className="empty">

@@ -8,7 +8,7 @@ export const RepoPagination = ({ repos, page, setPage }) => {
   const handlerPrev = () => {
     setPage(page - 1);
   };
-  
+
   const handlerNext = () => {
     setPage(page + 1);
   };
@@ -51,6 +51,7 @@ export const RepoPagination = ({ repos, page, setPage }) => {
     }
     setItems(arr);
   }, [page]);
+  
   return (
     <div className="conteiner_pagination">
       <p>

@@ -15,6 +15,7 @@ export const User = () => {
     following: "",
     public_repos: 0,
   });
+
   const history = useHistory();
   const { login } = useParams();
 
@@ -44,6 +45,7 @@ export const User = () => {
       </div>
     );
   }
+  
   return (
     <section className="user_main">
       <UserInfo user={user} />
