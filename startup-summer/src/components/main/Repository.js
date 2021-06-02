@@ -8,12 +8,13 @@ export const Repository = ({ login, repos }) => {
   const path = useRouteMatch();
   const history = useHistory();
   const [page, setPage] = useState(1);
+  
   useEffect(() => {
     if (repos) {
       history.push(`${path.url}/${page}`);
     }
   }, [page]);
-  
+
   return repos ? (
     <section className="repository">
       <Switch>
