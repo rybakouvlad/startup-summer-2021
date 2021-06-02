@@ -1,10 +1,8 @@
 import React, { useEffect, useCallback, useState } from "react";
 import { useHistory, useParams } from "react-router";
-import { useQuery } from "../../hooks/useQuerty";
-import { EmptyRepository } from "./EmptyRepository";
-import { ListRepository } from "./ListRepository";
 import { Repository } from "./Repository";
 import { UserInfo } from "./UserInfo";
+import { Spinner } from "react-bootstrap";
 
 export const User = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +16,6 @@ export const User = () => {
     public_repos: 0,
   });
   const history = useHistory();
-  const query = useQuery()
   const { login } = useParams();
 
   const request = useCallback(async () => {
@@ -26,26 +23,31 @@ export const User = () => {
     try {
       const data = await fetch(`https://api.github.com/users/${login}`);
       const result = await data.json();
-      console.log(result);
       if (result.message) {
         history.push("/empty");
       }
       setUser({ ...result });
       setIsLoading(false);
     } catch (error) {}
-  }, [ ]);
+  }, []);
 
   useEffect(() => {
     request();
   }, [request]);
 
   if (isLoading) {
-    return <h1>Loading</h1>;
+    return (
+      <div className="spinner">
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      </div>
+    );
   }
   return (
     <section className="user_main">
       <UserInfo user={user} />
-      <Repository login={user.login} repos={user.public_repos}/>
+      <Repository login={user.login} repos={user.public_repos} />
     </section>
   );
 };

@@ -8,11 +8,12 @@ export const RepoPagination = ({ repos, page, setPage }) => {
   const handlerPrev = () => {
     setPage(page - 1);
   };
+  
   const handlerNext = () => {
     setPage(page + 1);
   };
+
   const handlerClick = (event) => {
-    console.log("@@@", event.target);
     setPage(Number(event.target.innerText));
   };
 
@@ -49,11 +50,9 @@ export const RepoPagination = ({ repos, page, setPage }) => {
       arr.push(<Pagination.Ellipsis key="n" />);
     }
     setItems(arr);
-    console.log(items);
   }, [page]);
-  console.log("!#!#D!#D", items);
   return (
-    <div>
+    <div className="conteiner_pagination">
       <p>
         {(page - 1) * 4 + 1}-{(page - 1) * 4 + 4} of {repos} items
       </p>

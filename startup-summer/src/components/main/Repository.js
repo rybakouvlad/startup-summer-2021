@@ -9,21 +9,20 @@ export const Repository = ({ login, repos }) => {
   const history = useHistory();
   const [page, setPage] = useState(1);
   useEffect(() => {
-    console.log(path);
     if (repos) {
-      console.log("!!!!!!!!!!", path);
       history.push(`${path.url}/${page}`);
     }
   }, [page]);
+  
   return repos ? (
-    <>
+    <section className="repository">
       <Switch>
         <Route path={`${path.url}/:page`}>
           <ListRepository login={login} repos={repos} />
         </Route>
       </Switch>
       <RepoPagination repos={repos} page={page} setPage={setPage}/>
-    </>
+    </section>
   ) : (
     <EmptyRepository />
   );

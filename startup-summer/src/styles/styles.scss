@@ -1,6 +1,8 @@
+@import "~bootstrap/scss/bootstrap";
+
 //abstract
 @import "abstract/constants";
-@import "~bootstrap/scss/bootstrap";
+
 //base
 @import "base/base";
 
@@ -11,3 +13,6 @@
 @import "components/header/search";
 @import "components/user";
 @import "components/repos";
+@import "components/pagination";
+@import "components/empty";
+@import "components/spinner";
